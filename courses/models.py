@@ -1,14 +1,21 @@
 from django.db import models
 
 # Create your models here.
-from django.contrib.auth.models import User
 
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 from .fields import OrderField
 
+from django.contrib.auth.models import AbstractUser
+from django.db import models
 
+class User(AbstractUser):
+    name = models.CharField(blank=True, max_length=255)
+
+    def __str__(self):
+        return self.email
+        
 class Subject(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
@@ -94,3 +101,6 @@ class Image(ItemBase):
 
 class Video(ItemBase):
     url = models.URLField()
+
+
+
