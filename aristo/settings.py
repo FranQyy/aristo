@@ -34,11 +34,9 @@ INSTALLED_APPS = [
     'courses',
     'accounts',
 
-
     'sslserver',
     'social_django',
     'rest_framework',
-    'knox',
 
     'django.contrib.sites',  # new
     'allauth',  # new
@@ -48,6 +46,7 @@ INSTALLED_APPS = [
 
     'rest_framework.authtoken',  # new!
     'rest_auth',  # new!
+    'knox',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -62,7 +61,11 @@ AUTH_USER_MODEL = 'accounts.User'
 
 # Rest framework settings
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', )
 }
 
 AUTHENTICATION_BACKENDS = (
