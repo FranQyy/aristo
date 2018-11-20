@@ -43,3 +43,17 @@ class CourseUpdateView(OwnerCourseEditMixin, UpdateView):
 class CourseDeleteView(OwnerCourseMixin, DeleteView):
     template_name = 'courses/manage/course/delete.html'
     success_url = reverse_lazy('manage_course_list')
+
+
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+
+# Create your views here.
+
+def home(request):
+    return render(request, 'courses/home.html')
+
+
+def login(request):
+    return render(request, 'courses/login.html')
