@@ -77,7 +77,6 @@ SITE_ID = 1
 
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
->>>>>> > 2e5745a6af50047e1f48438fc1ecc608eac9e17d
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
